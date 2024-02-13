@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <link rel="stylesheet" href="LandingPage.css">
+    
+</head>
+<body>
+    
+<div class="wrapper">
+    <div class="container" id="container">
+      <h2 class="question">Hello! Vanshika... will you be my Valentine?</h2>
+      <div class="btn-group">
+        <button class="yes-btn" id="yesButton">Yes</button>
+        <button class="no-btn">No</button>
+      </div>
+    </div>
+</div>
+  
+</body>
+<script>
+
+const container = document.getElementById("container");
+const wrapper = document.querySelector(".wrapper");
+const question = document.querySelector(".question");
+const yesbtn = document.querySelector(".yes-btn"); 
+const nobtn = document.querySelector(".no-btn"); 
+const envelope = document.querySelector(".envelope");
+
+
+    document.getElementById("yesButton").addEventListener("click", function() {
+    window.location.href = "Valentine.html"; 
+});
+
+function getRandomNumber(min, max) {
+  const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+  return randomNumber;
+}
+
+nobtn.addEventListener("mouseover", (e) => {
+  const containerHeight = container.getBoundingClientRect().height;
+  const containerWidth = container.getBoundingClientRect().width;
+
+  const btnHeight = nobtn.getBoundingClientRect().height;
+  const btnWidth = nobtn.getBoundingClientRect().width;
+
+  const newTop = getRandomNumber(0, containerHeight - btnHeight);
+  const newLeft = getRandomNumber(0, containerWidth - btnWidth);
+
+  nobtn.style.top = newTop + "px";
+  nobtn.style.left = newLeft + "px";
+});
+
+</script>
+</html>
